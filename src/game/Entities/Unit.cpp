@@ -764,6 +764,11 @@ void Unit::DealDamageMods(Unit* dealer, Unit* victim, uint32& damage, uint32* ab
         return;
     }
 
+     if (pVictim->GetTypeId() == TYPEID_PLAYER && zone == 1977)
+     {
+        damage = (damage*15)/100;
+     }
+
     uint32 originalDamage = damage;
 
     if (dealer) // dealer is optional

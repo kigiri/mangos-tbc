@@ -921,7 +921,38 @@ bool Creature::IsTrainerOf(Player* pPlayer, bool msg) const
     switch (GetCreatureInfo()->TrainerType)
     {
         case TRAINER_TYPE_CLASS:
-            /* always ok */
+            /* always ok
+            if (pPlayer->getClass() != GetCreatureInfo()->TrainerClass)
+            {
+               
+                if(msg)
+                {
+                    pPlayer->PlayerTalkClass->ClearMenus();
+                    switch (pPlayer->getClass()) 
+                    {
+                        case CLASS_DRUID:  pPlayer->PlayerTalkClass->SendGossipMenu(4913, GetObjectGuid());
+                        break;
+                        case CLASS_HUNTER: pPlayer->PlayerTalkClass->SendGossipMenu(10090, GetObjectGuid()); 
+                        break;
+                        case CLASS_MAGE:   pPlayer->PlayerTalkClass->SendGossipMenu(328, GetObjectGuid()); 
+                        break;
+                        case CLASS_PALADIN: pPlayer->PlayerTalkClass->SendGossipMenu(1635, GetObjectGuid()); 
+                        break;
+                        case CLASS_PRIEST: pPlayer->PlayerTalkClass->SendGossipMenu(4436, GetObjectGuid()); 
+                        break;
+                        case CLASS_ROGUE:  pPlayer->PlayerTalkClass->SendGossipMenu(4797, GetObjectGuid());
+                        break;
+                        case CLASS_SHAMAN: pPlayer->PlayerTalkClass->SendGossipMenu(5003, GetObjectGuid()); 
+                        break;
+                        case CLASS_WARLOCK: pPlayer->PlayerTalkClass->SendGossipMenu(5836, GetObjectGuid()); 
+                        break;                        
+                        case CLASS_WARRIOR: pPlayer->PlayerTalkClass->SendGossipMenu(4985, GetObjectGuid()); 
+                        break;
+                    }
+                }
+                return false;
+            }
+	    */
             break;
         case TRAINER_TYPE_PETS:
             if (pPlayer->getClass() != CLASS_HUNTER)
@@ -1018,8 +1049,6 @@ bool Creature::CanTrainAndResetTalentsOf(Player* pPlayer) const
     return pPlayer->getLevel() >= 10
            && GetCreatureInfo()->TrainerType == TRAINER_TYPE_CLASS;
 }
-
-
 
 void Creature::PrepareBodyLootState()
 {
