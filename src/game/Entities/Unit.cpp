@@ -693,6 +693,11 @@ void Unit::DealDamageMods(Unit* pVictim, uint32& damage, uint32* absorb, DamageE
         damage = 0;
     }
 
+     if (pVictim->GetTypeId() == TYPEID_PLAYER && zone == 1977)
+     {
+        damage = (damage*15)/100;
+     }
+
     uint32 originalDamage = damage;
 
     // Script Event damage Deal

@@ -877,7 +877,7 @@ bool Creature::IsTrainerOf(Player* pPlayer, bool msg) const
                         break;
                     }
                 }
-                       return false;
+                return false;
             }
             break;
         case TRAINER_TYPE_PETS:
@@ -975,8 +975,6 @@ bool Creature::CanTrainAndResetTalentsOf(Player* pPlayer) const
     return pPlayer->getLevel() >= 10
            && GetCreatureInfo()->TrainerType == TRAINER_TYPE_CLASS;
 }
-
-
 
 void Creature::PrepareBodyLootState()
 {
