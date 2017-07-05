@@ -6905,11 +6905,10 @@ void Player::UpdateZone(uint32 newZone, uint32 newArea, bool force)
     if (!zone)
         return;
 
-<<<<<<< HEAD
     if (m_zoneUpdateId != newZone || force)
-=======
-    switch (newZone)
     {
+        switch (newZone)
+        {
         case 33: // strangle
         case 1977: // zulgurub
         case 3277: // warsong
@@ -6919,8 +6918,6 @@ void Player::UpdateZone(uint32 newZone, uint32 newArea, bool force)
         case 3817: // test
         case 3968: // lordearon
         case 2597: // Alterac Valley
-        case
-            break;
         case 8: // Swamp of sorrow
             TeleportTo(0, -13191.237305f, -1886.265503f, 0.0016f, GetOrientation());
             return;
@@ -6942,11 +6939,8 @@ void Player::UpdateZone(uint32 newZone, uint32 newArea, bool force)
         default:
             TeleportTo(0, m_homebindX, m_homebindY, m_homebindZ, GetOrientation());
             return;
-    }
+        }
 
-    if (m_zoneUpdateId != newZone)
->>>>>>> Update Player.cpp
-    {
         // handle outdoor pvp zones
         sOutdoorPvPMgr.HandlePlayerLeaveZone(this, m_zoneUpdateId);
         sWorldState.HandlePlayerLeaveZone(this, m_zoneUpdateId);
