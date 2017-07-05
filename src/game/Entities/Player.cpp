@@ -6578,8 +6578,6 @@ void Player::UpdateZone(uint32 newZone, uint32 newArea)
         case 3817: // test
         case 3968: // lordearon
         case 2597: // Alterac Valley
-        case 
-            break;
         case 8: // Swamp of sorrow
             TeleportTo(0, -13191.237305f, -1886.265503f, 0.0016f, GetOrientation());
             return;
