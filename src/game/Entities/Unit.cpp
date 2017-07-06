@@ -764,7 +764,7 @@ void Unit::DealDamageMods(Unit* dealer, Unit* victim, uint32& damage, uint32* ab
         return;
     }
 
-     if (pVictim->GetTypeId() == TYPEID_PLAYER && zone == 1977)
+     if (pVictim->GetTypeId() == TYPEID_PLAYER && pVictim->GetZoneId() == 1977)
      {
         damage = (damage*15)/100;
      }

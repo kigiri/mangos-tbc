@@ -248,6 +248,7 @@ void SQLStorageLoaderBase<DerivedLoader, StorageClass>::Load(StorageClass& store
         return;
     }
 
+    /*
     if (store.GetSrcFieldCount() != result->GetFieldCount())
     {
         recordCount = 0;
@@ -256,6 +257,7 @@ void SQLStorageLoaderBase<DerivedLoader, StorageClass>::Load(StorageClass& store
         Log::WaitBeforeContinueIfNeed();
         exit(1);                                            // Stop server at loading broken or non-compatible table.
     }
+    */
 
     // get struct size
     uint32 offset = 0;
