@@ -3660,27 +3660,27 @@ void Player::_SaveSpellCooldowns()
 uint32 Player::resetTalentsCost() const
 {
     // The first time reset costs 1 gold
-    if (m_resetTalentsCost < 1 * GOLD)
-        return 1 * GOLD;
+    if (m_resetTalentsCost < 1 * SILVER)
+        return 1 * SILVER;
     // then 5 gold
-    if (m_resetTalentsCost < 5 * GOLD)
-        return 5 * GOLD;
+    if (m_resetTalentsCost < 5 * SILVER)
+        return 5 * SILVER;
     // After that it increases in increments of 5 gold
-    if (m_resetTalentsCost < 10 * GOLD)
-        return 10 * GOLD;
+    if (m_resetTalentsCost < 10 * SILVER)
+        return 10 * SILVER;
     time_t months = (sWorld.GetGameTime() - m_resetTalentsTime) / MONTH;
     if (months > 0)
     {
         // This cost will be reduced by a rate of 5 gold per month
-        int32 new_cost = int32((m_resetTalentsCost) - 5 * GOLD * months);
+        int32 new_cost = int32((m_resetTalentsCost) - 5 * SILVER * months);
         // to a minimum of 10 gold.
-        return uint32(new_cost < 10 * GOLD ? 10 * GOLD : new_cost);
+        return uint32(new_cost < 10 * SILVER ? 10 * SILVER : new_cost);
     }
     // After that it increases in increments of 5 gold
-    int32 new_cost = m_resetTalentsCost + 5 * GOLD;
+    int32 new_cost = m_resetTalentsCost + 5 * SILVER;
     // until it hits a cap of 50 gold.
-    if (new_cost > 50 * GOLD)
-        new_cost = 50 * GOLD;
+    if (new_cost > 50 * SILVER)
+        new_cost = 50 * SILVER;
     return new_cost;
 }
 
