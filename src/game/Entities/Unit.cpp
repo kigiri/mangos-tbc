@@ -9700,13 +9700,13 @@ void Unit::SetIncapacitatedState(bool apply, uint32 state, ObjectGuid casterGuid
     if (HasFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_CONFUSED))
     {
         StopMoving(true);
-        GetMotionMaster()->MoveConfused();
-    }
+		SetImmobilizedState(apply, false);
+	}
     else if (HasFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_FLEEING))
     {
         StopMoving(true);
-        GetMotionMaster()->MoveFleeing(IsInWorld() ?  GetMap()->GetUnit(casterGuid) : nullptr, time);
-    }
+		SetImmobilizedState(apply, false);
+	}
 }
 
 void Unit::SetFeignDeath(bool apply, ObjectGuid casterGuid /*= ObjectGuid()*/)
