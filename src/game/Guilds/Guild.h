@@ -190,12 +190,12 @@ inline uint32 GetGuildBankTabPrice(uint8 Index)
 {
     switch (Index)
     {
-        case 0: return 100;
-        case 1: return 250;
-        case 2: return 500;
-        case 3: return 1000;
-        case 4: return 2500;
-        case 5: return 5000;
+        case 0: return 10;
+        case 1: return 25;
+        case 2: return 50;
+        case 3: return 100;
+        case 4: return 250;
+        case 5: return 500;
         default:
             return 0;
     }

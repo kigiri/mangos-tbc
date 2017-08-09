@@ -116,6 +116,10 @@ namespace Movement
         if (generatePath)
         {
             PathFinder path(&unit);
+			if (forceDestination)
+			{
+				path.setPathLengthLimit(30);
+			}
             path.calculate(dest.x, dest.y, dest.z, forceDestination);
             MovebyPath(path.getPath());
         }
