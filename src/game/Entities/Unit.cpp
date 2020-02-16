@@ -764,7 +764,7 @@ void Unit::DealDamageMods(Unit* dealer, Unit* victim, uint32& damage, uint32* ab
         return;
     }
 
-     if (pVictim->GetTypeId() == TYPEID_PLAYER && pVictim->GetZoneId() == 1977)
+     if (victim->GetTypeId() == TYPEID_PLAYER && victim->GetZoneId() == 1977)
      {
         damage = (damage*10)/100;
      }
@@ -7367,7 +7367,7 @@ uint32 Unit::SpellHealingBonusDone(Unit* victim, SpellEntry const* spellProto, i
     // use float as more appropriate for negative values and percent applying
     float heal = (healamount + DoneTotal * int32(stack)) * DoneTotalMod;
     
-    if (pVictim->GetTypeId() == TYPEID_UNIT && pVictim->GetZoneId() == 1977)
+    if (victim->GetTypeId() == TYPEID_UNIT && victim->GetZoneId() == 1977)
     {
         heal = (heal*10)/100;
     }
