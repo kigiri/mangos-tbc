@@ -6993,6 +6993,36 @@ void Player::UpdateZone(uint32 newZone, uint32 newArea, bool force)
 
     UpdateZoneDependentAuras();
     UpdateZoneDependentPets();
+// Wait for the end of zone update then check if zone is allowed. If not, port back
+    switch (newZone)
+    {
+        case 33:   // strangle
+        case 1977: // zulgurub
+        case 3277: // warsong
+        case 3358: // arathi
+        case 3698: // nagrand
+        case 3702: // tranchantes
+        case 3817: // test
+        case 3968: // lordearon
+        case 2597: // Alterac Valley
+            //do nothing, good zone
+            break;
+        case 8: // Swamp of sorrow
+        case 19: // ZG non-instance   
+        case 41: // Deadwind pass
+        case 4: // Blasted Lands
+            TeleportTo(0, -13191.237305f, -1886.265503f, 0.0016f, GetOrientation());
+            break;
+        case 10: // Duskwood
+            TeleportTo(0, -11335.248047f, -379.428772f, 65.3961f, GetOrientation());
+            break;
+        case 40: // Westfall
+            TeleportTo(0, -11709.507812f, 1304.991577f, 1.0409f, GetOrientation());
+            break;
+        default:
+            TeleportTo(0, m_homebindX, m_homebindY, m_homebindZ, GetOrientation());
+            break;
+    }
 }
 
 // If players are too far way of duel flag... then player loose the duel
