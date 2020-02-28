@@ -832,7 +832,7 @@ bool Player::Create(uint32 guidlow, const std::string& name, uint8 race, uint8 c
     // original action bar
     for (auto action_itr : info->action)
         addActionButton(action_itr.button, action_itr.action, action_itr.type);
-
+    /*
     // original items
     uint32 raceClassGender = GetUInt32Value(UNIT_FIELD_BYTES_0) & 0x00FFFFFF;
 
@@ -885,7 +885,7 @@ bool Player::Create(uint32 guidlow, const std::string& name, uint8 race, uint8 c
             StoreNewItemInBestSlots(item_id, count);
         }
     }
-
+    */
     for (auto item_id_itr : info->item)
         StoreNewItemInBestSlots(item_id_itr.item_id, item_id_itr.item_amount);
 
