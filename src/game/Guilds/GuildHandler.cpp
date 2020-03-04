@@ -746,14 +746,14 @@ void WorldSession::HandleSaveGuildEmblemOpcode(WorldPacket& recvPacket)
         return;
     }
 
-    if (GetPlayer()->GetMoney() < 10 * GOLD)
+    if (GetPlayer()->GetMoney() < 1 * GOLD)
     {
         //"You can't afford to do that."
         SendSaveGuildEmblem(ERR_GUILDEMBLEM_NOTENOUGHMONEY);
         return;
     }
 
-    GetPlayer()->ModifyMoney(-10 * GOLD);
+    GetPlayer()->ModifyMoney(-1 * GOLD);
     guild->SetEmblem(EmblemStyle, EmblemColor, BorderStyle, BorderColor, BackgroundColor);
 
     //"Guild Emblem saved."
@@ -1100,7 +1100,7 @@ void WorldSession::HandleGuildBankBuyTab(WorldPacket& recv_data)
     if (TabId != pGuild->GetPurchasedTabs())
         return;
 
-    uint32 TabCost = GetGuildBankTabPrice(TabId) * GOLD;
+    uint32 TabCost = GetGuildBankTabPrice(TabId) * SILVER;
     if (!TabCost)
         return;
 
