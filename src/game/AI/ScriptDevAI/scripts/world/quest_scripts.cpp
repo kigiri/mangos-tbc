@@ -34,9 +34,76 @@ enum
     QUEST_VIALS_OF_ETERNITY                 = 10445,
     QUEST_TRIAL_OF_THE_NAARU_MAGTHERIDON    = 10888,
     QUEST_CUDGEL_OF_KARDESH                 = 10901,
+    QUEST_PRIVATE                           = 8372,
+    QUEST_CORPORAL                          = 19050,
+    QUEST_SERGEANT                          = 19051,
+    QUEST_MASTER_SERGEANT                   = 19052,
+    QUEST_SERGEANT_MAJOR                    = 19053,
+    QUEST_KNIGHT                            = 19054,
+    QUEST_KNIGHT_LIEUTENANT                 = 19055,
+    QUEST_KNIGHT_CAPTAIN                    = 19056,
+    QUEST_KNIGHT_CHAMPION                   = 19057,
+    QUEST_LIEUTENANT_COMMANDER              = 19058,
+    QUEST_COMMANDER                         = 19059,
+    QUEST_MARSHAL                           = 19060,
+    QUEST_FIELD_MARSHAL                     = 19061,
+    QUEST_GRAND_MARSHAL                     = 19062,
+    QUEST_SCOUT                             = 8373,
+    QUEST_GRUNT                             = 19063,
+    QUEST_SERGEANT_HORDE                    = 19064,
+    QUEST_SENIOR_SERGEANT                   = 19065,
+    QUEST_FIRST_SERGEANT                    = 19066,
+    QUEST_STONE_GUARD                       = 19067,
+    QUEST_BLOOD_GUARD                       = 19068,
+    QUEST_LEGIONNAIRE                       = 19069,
+    QUEST_CENTURION                         = 19070,
+    QUEST_CHAMPION                          = 19071,
+    QUEST_LIEUTENANT_GENERAL                = 19072,
+    QUEST_GENERAL                           = 19073,
+    QUEST_WARLORD                           = 19074,
+    QUEST_HIGH_WARLORD                      = 19075,
 
+    TITLE_PRIVATE                           = 1,
+    TITLE_CORPORAL                          = 2,
+    TITLE_SERGEANT                          = 3,
+    TITLE_MASTER_SERGEANT                   = 4,
+    TITLE_SERGEANT_MAJOR                    = 5,
+    TITLE_KNIGHT                            = 6,
+    TITLE_KNIGHT_LIEUTENANT                 = 7,
+    TITLE_KNIGHT_CAPTAIN                    = 8,
+    TITLE_KNIGHT_CHAMPION                   = 9,
+    TITLE_LIEUTENANT_COMMANDER              = 10,
+    TITLE_COMMANDER                         = 11,
+    TITLE_MARSHAL                           = 12,
+    TITLE_FIELD_MARSHAL                     = 13,
+    TITLE_GRAND_MARSHAL                     = 14,
+    TITLE_SCOUT                             = 15,
+    TITLE_GRUNT                             = 16,
+    TITLE_SERGEANT_HORDE                    = 17,
+    TITLE_SENIOR_SERGEANT                   = 18,
+    TITLE_FIRST_SERGEANT                    = 19,
+    TITLE_STONE_GUARD                       = 20,
+    TITLE_BLOOD_GUARD                       = 21,
+    TITLE_LEGIONNAIRE                       = 22,
+    TITLE_CENTURION                         = 23,
+    TITLE_CHAMPION                          = 24,
+    TITLE_LIEUTENANT_GENERAL                = 25,
+    TITLE_GENERAL                           = 26,
+    TITLE_WARLORD                           = 27,
+    TITLE_HIGH_WARLORD                      = 28,
+    TITLE_GLADIATOR                         = 42,
+    TITLE_DUELIST                           = 43,
+    TITLE_RIVAL                             = 44,
+    TITLE_CHALLENGER                        = 45,
+    TITLE_SCARAB_LORD                       = 46,
+    TITLE_CONQUEROR                         = 47,
+    TITLE_JUSTICAR                          = 48,
     TITLE_CHAMPION_OF_THE_NAARU             = 53,
+    TITLE_MERCILESS_GLADIATOR               = 62,
+    TITLE_OF_THE_SHATTERED_SUN              = 63,
     TITLE_HAND_OF_ADAL                      = 64,
+    TITLE_VENGEFUL_GLADIATOR                = 71,
+    TITLE_BATTLEMASTER                      = 72,
 };
 
 bool QuestRewarded_tbc_attunement_titles(Player* player, Creature* /*creature*/, Quest const* quest)
@@ -57,6 +124,42 @@ bool QuestRewarded_tbc_attunement_titles(Player* player, Creature* /*creature*/,
             return true;
     }
 
+    return false;
+}
+
+bool QuestRewarded_pvp_titles(Player* player, Creature* /*creature*/, Quest const* quest)
+{
+    switch (quest->GetQuestId())
+    {
+        case QUEST_PRIVATE:              player->GetQuestStatus(TITLE_PRIVATE);              return true;
+        case QUEST_CORPORAL:             player->GetQuestStatus(TITLE_CORPORAL);             return true;
+        case QUEST_SERGEANT:             player->GetQuestStatus(TITLE_SERGEANT);             return true;
+        case QUEST_MASTER_SERGEANT:      player->GetQuestStatus(TITLE_MASTER_SERGEANT);      return true;
+        case QUEST_SERGEANT_MAJOR:       player->GetQuestStatus(TITLE_SERGEANT_MAJOR);       return true;
+        case QUEST_KNIGHT:               player->GetQuestStatus(TITLE_KNIGHT);               return true;
+        case QUEST_KNIGHT_LIEUTENANT:    player->GetQuestStatus(TITLE_KNIGHT_LIEUTENANT);    return true;
+        case QUEST_KNIGHT_CAPTAIN:       player->GetQuestStatus(TITLE_KNIGHT_CAPTAIN);       return true;
+        case QUEST_KNIGHT_CHAMPION:      player->GetQuestStatus(TITLE_KNIGHT_CHAMPION);      return true;
+        case QUEST_LIEUTENANT_COMMANDER: player->GetQuestStatus(TITLE_LIEUTENANT_COMMANDER); return true;
+        case QUEST_COMMANDER:            player->GetQuestStatus(TITLE_COMMANDER);            return true;
+        case QUEST_MARSHAL:              player->GetQuestStatus(TITLE_MARSHAL);              return true;
+        case QUEST_FIELD_MARSHAL:        player->GetQuestStatus(TITLE_FIELD_MARSHAL);        return true;
+        case QUEST_GRAND_MARSHAL:        player->GetQuestStatus(TITLE_GRAND_MARSHAL);        return true;
+        case QUEST_SCOUT:                player->GetQuestStatus(TITLE_SCOUT);                return true;
+        case QUEST_GRUNT:                player->GetQuestStatus(TITLE_GRUNT);                return true;
+        case QUEST_SERGEANT_HORDE:       player->GetQuestStatus(TITLE_SERGEANT_HORDE);       return true;
+        case QUEST_SENIOR_SERGEANT:      player->GetQuestStatus(TITLE_SENIOR_SERGEANT);      return true;
+        case QUEST_FIRST_SERGEANT:       player->GetQuestStatus(TITLE_FIRST_SERGEANT);       return true;
+        case QUEST_STONE_GUARD:          player->GetQuestStatus(TITLE_STONE_GUARD);          return true;
+        case QUEST_BLOOD_GUARD:          player->GetQuestStatus(TITLE_BLOOD_GUARD);          return true;
+        case QUEST_LEGIONNAIRE:          player->GetQuestStatus(TITLE_LEGIONNAIRE);          return true;
+        case QUEST_CENTURION:            player->GetQuestStatus(TITLE_CENTURION);            return true;
+        case QUEST_CHAMPION:             player->GetQuestStatus(TITLE_CHAMPION);             return true;
+        case QUEST_LIEUTENANT_GENERAL:   player->GetQuestStatus(TITLE_LIEUTENANT_GENERAL);   return true;
+        case QUEST_GENERAL:              player->GetQuestStatus(TITLE_GENERAL);              return true;
+        case QUEST_WARLORD:              player->GetQuestStatus(TITLE_WARLORD);              return true;
+        case QUEST_HIGH_WARLORD:         player->GetQuestStatus(TITLE_HIGH_WARLORD);         return true;
+    }
     return false;
 }
 
@@ -304,4 +407,9 @@ void AddSC_quests_scripts()
     pNewScript->GetAI = &GetAI_npc_xiri;
     pNewScript->pQuestRewardedNPC = &QuestRewarded_tbc_attunement_titles;
     pNewScript->RegisterSelf();
+
+    Script* pvpQuest = new Script;
+    pvpQuest->Name = "npc_quest_pvp_title";
+    pvpQuest->pQuestRewardedNPC = &QuestRewarded_pvp_titles;
+    pvpQuest->RegisterSelf();
 }
