@@ -752,11 +752,12 @@ void GameEventMgr::ApplyNewEvent(uint16 event_id, bool resume)
     if (sWorld.getConfig(CONFIG_BOOL_EVENT_ANNOUNCE))
         sWorld.SendWorldText(LANG_EVENTMESSAGE, m_gameEvents[event_id].description.c_str());
 
-    sLog.outString("GameEvent %u \"%s\" started.", event_id, m_gameEvents[event_id].description.c_str());
+    sLog.outString("GameEvent %u \"%s\" started %sresumed.", event_id, m_gameEvents[event_id].description.c_str(), resume ? "" : "not ");
+    int16 e_id = event_id == 16 && resume ? -event_id : event_id;
     // spawn positive event tagget objects
-    GameEventSpawn(event_id);
+    GameEventSpawn(e_id);
     // un-spawn negative event tagged objects
-    int16 event_nid = (-1) * event_id;
+    int16 event_nid = (-1) * e_id;
     GameEventUnspawn(event_nid);
     // Change equipement or model
     UpdateCreatureData(event_id, true);
