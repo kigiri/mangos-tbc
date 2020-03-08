@@ -4147,6 +4147,10 @@ void Unit::_UpdateAutoRepeatSpell()
     // check "real time" interrupts
     if (IsMoving() || IsNonMeleeSpellCasted(false, false, true))
     {
+		// cancel wand shoot
+		if (m_currentSpells[CURRENT_AUTOREPEAT_SPELL]->m_spellInfo->Id == 5019)
+			InterruptSpell(CURRENT_AUTOREPEAT_SPELL);
+
         if (!IsNonMeleeSpellCasted(false, false, true, false, true)) // stricter check to see if we should introduce cooldown or just return
             return;
         // cancel wand shoot
