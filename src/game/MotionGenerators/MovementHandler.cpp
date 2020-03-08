@@ -29,6 +29,7 @@
 #include "Maps/MapPersistentStateMgr.h"
 #include "Globals/ObjectMgr.h"
 #include "World/World.h"
+#include "Spells/SpellMgr.h"
 
 #include <boost/accumulators/statistics/variance.hpp>
 #include <boost/accumulators/accumulators.hpp>
@@ -279,6 +280,13 @@ void WorldSession::HandleMovementOpcodes(WorldPacket& recv_data)
 
     if (plMover)
         plMover->UpdateFallInformationIfNeed(movementInfo, opcode);
+
+    if (plMover && (opcode == MSG_MOVE_START_STRAFE_LEFT || opcode == MSG_MOVE_START_STRAFE_RIGHT))
+    {
+        Spell* curSpell = plMover->GetCurrentSpell(CURRENT_GENERIC_SPELL);
+        if (curSpell && !IsNextMeleeSwingSpell(curSpell->m_spellInfo) && !curSpell->IsAutoRepeat() && !curSpell->m_IsTriggeredSpell && (curSpell->m_spellInfo->InterruptFlags & SPELL_INTERRUPT_FLAG_MOVEMENT))
+            plMover->InterruptNonMeleeSpells(false, curSpell->m_spellInfo->Id);
+    }
 
     WorldPacket data(opcode, recv_data.size());
     data << mover->GetPackGUID();                           // write guid
