@@ -131,34 +131,34 @@ bool QuestRewarded_pvp_titles(Player* player, Creature* /*creature*/, Quest cons
 {
     switch (quest->GetQuestId())
     {
-        case QUEST_PRIVATE:              player->GetQuestStatus(TITLE_PRIVATE);              return true;
-        case QUEST_CORPORAL:             player->GetQuestStatus(TITLE_CORPORAL);             return true;
-        case QUEST_SERGEANT:             player->GetQuestStatus(TITLE_SERGEANT);             return true;
-        case QUEST_MASTER_SERGEANT:      player->GetQuestStatus(TITLE_MASTER_SERGEANT);      return true;
-        case QUEST_SERGEANT_MAJOR:       player->GetQuestStatus(TITLE_SERGEANT_MAJOR);       return true;
-        case QUEST_KNIGHT:               player->GetQuestStatus(TITLE_KNIGHT);               return true;
-        case QUEST_KNIGHT_LIEUTENANT:    player->GetQuestStatus(TITLE_KNIGHT_LIEUTENANT);    return true;
-        case QUEST_KNIGHT_CAPTAIN:       player->GetQuestStatus(TITLE_KNIGHT_CAPTAIN);       return true;
-        case QUEST_KNIGHT_CHAMPION:      player->GetQuestStatus(TITLE_KNIGHT_CHAMPION);      return true;
-        case QUEST_LIEUTENANT_COMMANDER: player->GetQuestStatus(TITLE_LIEUTENANT_COMMANDER); return true;
-        case QUEST_COMMANDER:            player->GetQuestStatus(TITLE_COMMANDER);            return true;
-        case QUEST_MARSHAL:              player->GetQuestStatus(TITLE_MARSHAL);              return true;
-        case QUEST_FIELD_MARSHAL:        player->GetQuestStatus(TITLE_FIELD_MARSHAL);        return true;
-        case QUEST_GRAND_MARSHAL:        player->GetQuestStatus(TITLE_GRAND_MARSHAL);        return true;
-        case QUEST_SCOUT:                player->GetQuestStatus(TITLE_SCOUT);                return true;
-        case QUEST_GRUNT:                player->GetQuestStatus(TITLE_GRUNT);                return true;
-        case QUEST_SERGEANT_HORDE:       player->GetQuestStatus(TITLE_SERGEANT_HORDE);       return true;
-        case QUEST_SENIOR_SERGEANT:      player->GetQuestStatus(TITLE_SENIOR_SERGEANT);      return true;
-        case QUEST_FIRST_SERGEANT:       player->GetQuestStatus(TITLE_FIRST_SERGEANT);       return true;
-        case QUEST_STONE_GUARD:          player->GetQuestStatus(TITLE_STONE_GUARD);          return true;
-        case QUEST_BLOOD_GUARD:          player->GetQuestStatus(TITLE_BLOOD_GUARD);          return true;
-        case QUEST_LEGIONNAIRE:          player->GetQuestStatus(TITLE_LEGIONNAIRE);          return true;
-        case QUEST_CENTURION:            player->GetQuestStatus(TITLE_CENTURION);            return true;
-        case QUEST_CHAMPION:             player->GetQuestStatus(TITLE_CHAMPION);             return true;
-        case QUEST_LIEUTENANT_GENERAL:   player->GetQuestStatus(TITLE_LIEUTENANT_GENERAL);   return true;
-        case QUEST_GENERAL:              player->GetQuestStatus(TITLE_GENERAL);              return true;
-        case QUEST_WARLORD:              player->GetQuestStatus(TITLE_WARLORD);              return true;
-        case QUEST_HIGH_WARLORD:         player->GetQuestStatus(TITLE_HIGH_WARLORD);         return true;
+        case QUEST_PRIVATE:              player->SetTitle(TITLE_PRIVATE);              return true;
+        case QUEST_CORPORAL:             player->SetTitle(TITLE_CORPORAL);             return true;
+        case QUEST_SERGEANT:             player->SetTitle(TITLE_SERGEANT);             return true;
+        case QUEST_MASTER_SERGEANT:      player->SetTitle(TITLE_MASTER_SERGEANT);      return true;
+        case QUEST_SERGEANT_MAJOR:       player->SetTitle(TITLE_SERGEANT_MAJOR);       return true;
+        case QUEST_KNIGHT:               player->SetTitle(TITLE_KNIGHT);               return true;
+        case QUEST_KNIGHT_LIEUTENANT:    player->SetTitle(TITLE_KNIGHT_LIEUTENANT);    return true;
+        case QUEST_KNIGHT_CAPTAIN:       player->SetTitle(TITLE_KNIGHT_CAPTAIN);       return true;
+        case QUEST_KNIGHT_CHAMPION:      player->SetTitle(TITLE_KNIGHT_CHAMPION);      return true;
+        case QUEST_LIEUTENANT_COMMANDER: player->SetTitle(TITLE_LIEUTENANT_COMMANDER); return true;
+        case QUEST_COMMANDER:            player->SetTitle(TITLE_COMMANDER);            return true;
+        case QUEST_MARSHAL:              player->SetTitle(TITLE_MARSHAL);              return true;
+        case QUEST_FIELD_MARSHAL:        player->SetTitle(TITLE_FIELD_MARSHAL);        return true;
+        case QUEST_GRAND_MARSHAL:        player->SetTitle(TITLE_GRAND_MARSHAL);        return true;
+        case QUEST_SCOUT:                player->SetTitle(TITLE_SCOUT);                return true;
+        case QUEST_GRUNT:                player->SetTitle(TITLE_GRUNT);                return true;
+        case QUEST_SERGEANT_HORDE:       player->SetTitle(TITLE_SERGEANT_HORDE);       return true;
+        case QUEST_SENIOR_SERGEANT:      player->SetTitle(TITLE_SENIOR_SERGEANT);      return true;
+        case QUEST_FIRST_SERGEANT:       player->SetTitle(TITLE_FIRST_SERGEANT);       return true;
+        case QUEST_STONE_GUARD:          player->SetTitle(TITLE_STONE_GUARD);          return true;
+        case QUEST_BLOOD_GUARD:          player->SetTitle(TITLE_BLOOD_GUARD);          return true;
+        case QUEST_LEGIONNAIRE:          player->SetTitle(TITLE_LEGIONNAIRE);          return true;
+        case QUEST_CENTURION:            player->SetTitle(TITLE_CENTURION);            return true;
+        case QUEST_CHAMPION:             player->SetTitle(TITLE_CHAMPION);             return true;
+        case QUEST_LIEUTENANT_GENERAL:   player->SetTitle(TITLE_LIEUTENANT_GENERAL);   return true;
+        case QUEST_GENERAL:              player->SetTitle(TITLE_GENERAL);              return true;
+        case QUEST_WARLORD:              player->SetTitle(TITLE_WARLORD);              return true;
+        case QUEST_HIGH_WARLORD:         player->SetTitle(TITLE_HIGH_WARLORD);         return true;
     }
     return false;
 }
